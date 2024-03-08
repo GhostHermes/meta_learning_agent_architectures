@@ -81,3 +81,25 @@ This guide outlines how to configure AutoGen to utilize your locally hosted Mixt
      "base_url": "http://localhost:<port_number>/v1"  // Your LM Studio endpoint
      // Add any other model-specific parameters as needed 
    }
+   ```
+Update Agent Definitions:
+In your AutoGen agent code, reference the newly created model name (e.g., "mixtral_8x7b_instruct") within the LLM configuration section of your agent definitions.
+
+```python
+from autogen import AssistantAgent, config_list_from_json
+
+config_list = config_list_from_json("OAI_CONFIG_LIST") 
+
+assistant = AssistantAgent(
+    "assistant", 
+    llm_config={"config_list": config_list, "model": "mixtral_8x7b_instruct"} 
+) 
+# ... rest of your agent configuration and usage
+
+```
+Important Notes
+AutoGen might introduce a small amount of latency by acting as an intermediary between your agents and the LM Studio model.
+Ensure data format compatibility between AutoGen and your LM Studio model's input/output expectations.
+Troubleshooting
+Double-check the LM Studio endpoint URL and authentication details.
+Refer to AutoGen's documentation for more advanced configuration options.
