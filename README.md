@@ -54,6 +54,7 @@ Improve the integration between AutoGen and LM Studio.
 Disclaimer
 Please note that research into autonomous, self-modifying agents raises important considerations around safety and control. Use caution and consider potential unintended consequences when developing such systems.
 
+```
 # Integrating AutoGen with a Local Mixtral Inference Model
 
 This guide outlines how to configure AutoGen to utilize your locally hosted Mixtral language model running within LM Studio.
